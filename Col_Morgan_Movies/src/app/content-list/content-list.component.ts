@@ -72,7 +72,7 @@ export class ContentListComponent {
     
   }
 
-  logToConsole(item: { id: string; title: string; }){
+  onClick(item: { id: string; title: string; }){
     console.log("ID: " + item.id + ", Title: " + item.title);
   }
 }

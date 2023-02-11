@@ -1,10 +1,12 @@
 <p>content-list works!</p>
 
 <app-content-list *ngFor="let item of myContentList" [content]="item" [class.is-first]="isFirst"></app-content-list>
-<h1>{{item.title}}</h1>
-<p onClick="logToConsole(item)">{{item.image}}</p>
-<p>{{item.description}}</p>
-<p>{{item.creator}}</p>
-<p>{{item.type}}</p>
-<p>{{item.tags}}</p>
+<div>
+    <h1 [style.border]="is-first ? '2px black' : '1px black">{{item.title}}</h1>
+    <p (click)="onClick(item)">{{item.image}}</p>
+    <p>{{item.description}}</p>
+    <p>{{item.creator}}</p>
+    <p>{{item.type}}</p>
+    <p>{{item.tags}}</p>
+</div>
 </app-content-card>
