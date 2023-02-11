@@ -2,11 +2,39 @@ import { Component } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { ContentList } from '../helper-files/content-list';
 
+import { Pipe, PipeTransform } from '@angular/core';
+
+
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
+
+@Pipe({name: 'sortByType1'})
+
+export class sortByType1Pipe implements PipeTransform {
+  transform(contentList: Content[]) {
+    return contentList.filter(c => c.type == "type1" ? c.type.length : null);
+  }
+}
+
+@Pipe({name: 'sortByType2'})
+
+export class sortByType2Pipe implements PipeTransform {
+  transform(contentList: Content[]) {
+    return contentList.filter(c => c.type == "type2" ? c.type.length : null);
+  }
+}
+
+@Pipe({name: 'sortByNoType'})
+
+export class sortByNoTypePipe implements PipeTransform {
+  transform(contentList: Content[]) {
+    return contentList.filter(c => c.type == null);
+  }
+}
+
 export class ContentListComponent {
 
     myContentList : ContentList = new ContentList();
@@ -15,28 +43,32 @@ export class ContentListComponent {
     id: 0,
     title: `title1`,
     description: `description for title1`,
-    creator: `creator1`
+    creator: `creator1`,
+    type: `type1`
   }
 
   contentItem2 : Content = {
     id: 1,
     title: `title2`,
     description: `description for title2`,
-    creator: `creator2`
+    creator: `creator2`,
+    type: `type2`
   }
 
   contentItem3 : Content = {
     id: 2,
     title: `title3`,
     description: `description for title3`,
-    creator: `creator3`
+    creator: `creator3`,
+    type: `type1`
   }
 
   contentItem4 : Content = {
     id: 3,
     title: `title4`,
     description: `description for title4`,
-    creator: `creator4`
+    creator: `creator4`,
+    type: `type1`
   }
 
   contentItem5 : Content = {
@@ -45,11 +77,20 @@ export class ContentListComponent {
     description: `description for title5`,
     creator: `creator5`
   }
+
   contentItem6 : Content = {
     id: 5,
     title: `title6`,
     description: `description for title6`,
     creator: `creator6`
+  }
+
+  contentItem7 : Content = {
+    id: 6,
+    title: `title7`,
+    description: `description for title7`,
+    creator: `creator7`,
+    type: `type2`
   }
 
   constructor(){
