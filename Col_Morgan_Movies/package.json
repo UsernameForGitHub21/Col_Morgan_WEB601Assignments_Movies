@@ -1,6 +1,6 @@
 {
   "name": "col-morgan-movies",
-  "version": "0.0.1",
+  "version": "0.0.3s",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
