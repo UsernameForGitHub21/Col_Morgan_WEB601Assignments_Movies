@@ -5,6 +5,7 @@ import { ContentList } from '../helper-files/content-list';
 import { Pipe, PipeTransform } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
@@ -92,6 +93,7 @@ export class ContentListComponent {
     creator: `creator7`,
     type: `type2`
   }
+  bandList: any;
 
   constructor(){
     this.myContentList.add(this.contentItem1);
@@ -99,6 +101,8 @@ export class ContentListComponent {
     this.myContentList.add(this.contentItem3);
     this.myContentList.add(this.contentItem4);
 
+
+    
   }
 
   displayMyIndex(index : number) {
@@ -116,4 +120,10 @@ export class ContentListComponent {
   onClick(item: { id: string; title: string; }){
     console.log("ID: " + item.id + ", Title: " + item.title);
   }
+
+  addBandToList(newBandFromChild: Content) {
+    this.bandList.push(newBandFromChild);
+    this.bandList = Object.assign([], this.bandList);
+    this.bandList = [...this.bandList];
+    }
 }

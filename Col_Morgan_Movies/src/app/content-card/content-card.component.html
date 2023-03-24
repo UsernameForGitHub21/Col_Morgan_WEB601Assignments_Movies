@@ -1,3 +1,44 @@
 <p>content-card works!</p>
 
-{{displayMyIndex(1)}}
+<app-content-card *ngFor="let item of (myContentCard | sortByType1 )" [content]="item" [class.is-first]="isFirst"></app-content-card>
+<div [style.border]="is-first ? '2px black' : '1px black" [style.background-color]="blue">
+    <h1>{{item.title}}</h1>
+    <p (click)="onClick(item)">{{item.image}}</p>
+    <p>{{item.description}}</p>
+    <p>{{item.creator}}</p>
+    <p Hover-Affect>{{item.type}}</p>
+    <p Hover-Affect>{{item.tags}}</p>
+    <div *ngIf='item.imgURL'>
+        <img src="noMovie.png" alt="no movie">
+    </div>
+</div>
+</app-content-card>
+
+<app-content-card *ngFor="let item of (myContentCard | sortByType2 )" [content]="item" [class.is-first]="isFirst"></app-content-card>
+<div [style.border]="is-first ? '2px black' : '1px black" [style.background-color]="green">
+    <h1>{{item.title}}</h1>
+    <p (click)="onClick(item)">{{item.image}}</p>
+    <p>{{item.description}}</p>
+    <p>{{item.creator}}</p>
+    <p Hover-Affect>{{item.type}}</p>
+    <p Hover-Affect>{{item.tags}}</p>
+    <div *ngIf='item.imgURL'>
+        <img src="noMovie.png" alt="no movie">
+    </div>
+</div>
+</app-content-card>
+
+<app-content-card *ngFor="let item of (myContentCard | sortByNoType )" [content]="item" [class.is-first]="isFirst"></app-content-card>
+<div [style.border]="is-first ? '2px black' : '1px black" [style.background-color]="red">
+    <h1>{{item.title}}</h1>
+    <p (click)="onClick(item)">{{item.image}}</p>
+    <p>{{item.description}}</p>
+    <p>{{item.creator}}</p>
+    <p Hover-Affect>{{item.type}}</p>
+    <p Hover-Affect>{{item.tags}}</p>
+    <div *ngIf='item.imgURL'>
+        <img src="noMovie.png" alt="no movie">
+    </div>
+</div>
+</app-content-card>
+
