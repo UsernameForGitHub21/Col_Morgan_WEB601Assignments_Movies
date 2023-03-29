@@ -13,4 +13,8 @@ export class MessageService {
   clear() {
     this.messages = [];
   }
+  
+  getContent() : Observable<Content[]>{
+    return this.http.get<Content[]>("api/content");
+    }
 }

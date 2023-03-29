@@ -3,7 +3,7 @@ import { Content } from '../helper-files/content-interface';
 import { ContentList } from '../helper-files/content-list';
 
 import { Pipe, PipeTransform } from '@angular/core';
-
+import { } from '../modify-content-component';
 
 
 @Component({
