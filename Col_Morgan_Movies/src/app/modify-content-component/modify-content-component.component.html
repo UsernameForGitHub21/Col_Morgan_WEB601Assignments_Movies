@@ -34,3 +34,12 @@
   <mat-form-field>
   <input type="submit" value="Add Content">
   </mat-form-field>
+
+  <ol>
+    <li>
+        <button mat-raised-button (click)="openDialog()">Add New Movie</button>
+      </li>
+      <li *ngIf="movie">
+        You chose: <i>{{movie}}</i>
+      </li>
+    </ol>

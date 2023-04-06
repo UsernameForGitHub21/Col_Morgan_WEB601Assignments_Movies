@@ -5,13 +5,13 @@ export interface DialogData {
   movie: string;
   name: string;
 }
+
 /**
  * @title Dialog Overview
  */
 @Component({
-  selector: 'app-modify-content-component',
-  templateUrl: './modify-content-component.component.html',
-  styleUrls: ['./modify-content-component.component.scss']
+  selector: 'dialog-overview-example',
+  templateUrl: 'dialog-overview-example.html',
 })
 export class DialogOverviewExample {
   movie: string;
@@ -30,7 +30,6 @@ export class DialogOverviewExample {
     });
   }
 }
-
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',

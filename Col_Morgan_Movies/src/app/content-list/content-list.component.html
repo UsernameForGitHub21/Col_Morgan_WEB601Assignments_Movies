@@ -53,3 +53,12 @@
     (click)="clickEvent()">
     Click me for an update!
 </button>
+
+<ol>
+<li>
+    <button mat-raised-button (click)="openDialog()">Add New Movie</button>
+  </li>
+  <li *ngIf="movie">
+    You chose: <i>{{movie}}</i>
+  </li>
+</ol>
