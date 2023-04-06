@@ -1,16 +1,36 @@
+<button mat-raised-button color="primary" (click)="openDialog('0ms', '0ms')">Add Movie</button>
+</button>
+
+<label for="id">ID:</label><br>
+<mat-form-field>
+  <input type="text" id="id" name="id" disabled><br>
+</mat-form-field>
+
 <label for="title">Title:</label><br>
+<mat-form-field>
   <input type="text" id="title" name="title"><br>
+</mat-form-field>
 
   <label for="description">description:</label><br>
+  <mat-form-field>
   <input type="text" id="description" name="fdescription"><br>
+  </mat-form-field>
 
   <label for="creator">creator:</label><br>
+  <mat-form-field>
   <input type="text" id="creator" name="creator"><br>
+  </mat-form-field>
 
   <label for="type">type:</label><br>
+  <mat-form-field>
   <input type="text" id="type" name="type"><br>
+  </mat-form-field>
 
   <label for="tags">tags:</label><br>
+  <mat-form-field>
   <input type="text" id="tags" name="tags"><br>
+  </mat-form-field>
 
+  <mat-form-field>
   <input type="submit" value="Add Content">
+  </mat-form-field>

@@ -14,6 +14,10 @@ import { HttpClientModule } from
 import { HttpClientInMemoryWebApiModule } from
 "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/inmemory-data.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from'@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { InMemoryDataService } from "./services/inmemory-data.service";
     ModifyContentComponentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
