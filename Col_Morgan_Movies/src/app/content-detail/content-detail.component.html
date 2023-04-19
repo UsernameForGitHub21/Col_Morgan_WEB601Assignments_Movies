@@ -1,10 +1,13 @@
-<div>
-  <app-content-list></app-content-list>
-</div>
+<p>content-detail works!</p>
 
 <a routerLink="content" routerLinkActive="active"
 [routerLinkActiveOptions]="{ exact: true }">
 Content List
+</a><br />
+<a [routerLink]="['/content'
+,content.id]"
+routerLinkActive="active">
+Content Details
 </a><br />
 <a routerLink="content/42" routerLinkActive="active">
 The answer to the universe and everything

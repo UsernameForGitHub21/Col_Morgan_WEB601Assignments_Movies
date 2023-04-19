@@ -18,6 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from'@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {RouterModule, Routes} from '@angular/router';
+import { ContentDetialComponent } from './content-detial/content-detial.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ContentDetailComponent } from './content-detail/content-detail.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import {MatInputModule} from '@angular/material/input';
     HoverAffectDirective,
     CreateContentComponent,
     MessagesComponent,
-    ModifyContentComponentComponent
+    ModifyContentComponentComponent,
+    ContentDetialComponent,
+    PageNotFoundComponent,
+    ContentDetailComponent
   ],
   imports: [
     BrowserModule,
