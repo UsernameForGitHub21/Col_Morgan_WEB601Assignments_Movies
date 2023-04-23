@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -21,7 +21,10 @@ import {MatInputModule} from '@angular/material/input';
 import {RouterModule, Routes} from '@angular/router';
 import { ContentDetialComponent } from './content-detial/content-detial.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ContentDetailComponent } from './content-detail/content-detail.component'
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { ServiceWorkerModule, SwUpdate } from '@angular/service-worker'
+import { LogUpdateService } from './log-update.service';
+import { concat, first, interval } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -40,10 +43,36 @@ import { ContentDetailComponent } from './content-detail/content-detail.componen
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private foodService: FoodService,
+    private log: LogUpdateService,
+    private appRef: ApplicationRef,
+    private updates: SwUpdate
+    ) {}
+
+    ngOnInit(): void {
+      this.log.init();
+      // Allow the app to stabilize first
+      // then poll for updates with interval()
+      const appIsStable$ = this.appRef.isStable.pipe(
+      first(isStable => isStable === true));
+      const everyHour$ = interval(1 * 60 * 60 * 1000);
+      const everyHourOnceAppIsStable$ =
+      concat(appIsStable$, everyHour$);
+      everyHourOnceAppIsStable$.subscribe(
+      () => this.updates.checkForUpdate());
+
+    }
+ }
